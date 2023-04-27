@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <title>Niko Bid App</title>
+</head>
+<body>
+    <div class="container p-5 text-center" >
+        <span class="badge rounded-pill bg-primary p-3">NikoBid App</span>
+        <h1 class="text-center mt-3">Dashboard</h1>
+        <form action="/success" method="POST" enctype="multipart/form-data">
+        <p class="mt-4">Choose your bid option</p>
+        <div class="wrapper">
+          <input type="radio" name="option" id="manual" checked>
+          <input type="radio" name="option" id="auto">
+          <input type="radio" name="option" id="video">
+          <input type="radio" name="option" id="headline">
+          <input type="radio" name="option" id="asin-sd">
+          <input type="radio" name="option" id="asin-video">
+          <input type="radio" name="option" id="asin-headline">
+          <input type="radio" name="option" id="asin-sp">
+          <label for="manual" class="option option-1">
+            <span>Manual</span>
+          </label>
+          <label for="auto" class="option option-2">
+            <span>Auto</span>
+          </label>
+          <label for="video" class="option option-3">
+            <span>Video</span>
+          </label>
+          <label for="headline" class="option option-4">
+            <span>Headline</span>
+          </label>
+          <label for="asin-sd" class="option option-5">
+            <span>ASIN SD</span>
+          </label>
+          <label for="asin-video" class="option option-6">
+            <span>ASIN Video</span>
+          </label>
+          <label for="asin-headline" class="option option-7">
+            <span>ASIN Headline</span>
+          </label>
+          <label for="asin-sp" class="option option-8">
+            <span>ASIN SP</span>
+          </label>
+        </div>
+        <br>
+        <div class="row mt-4 text-center">
+          <div class="col-lg-6  justify-content-center d-flex mt-5">
+            <table class="table table-bordered">
+              <thead>
+                <tr class="table-primary">
+                  <td colspan="4">Bid Decrease</td>
+                </tr>
+                <tr class="table-success">
+                  <td>From</td>
+                  <td>To</td>
+                  <td>By(%)</td>
+                  <td>By Amit</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="table-light"><input type="text" class="input" name="from" value="10"></td>
+                  <td class="table-light"><input type="text" class="input" name="to" value="99"></td>
+                  <td class="table-light"><input type="text" class="input" name="by" value="2"></td>
+                  <td class="table-light"><input type="text" class="input" name="byAmit" value="0.01"></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-lg-6 justify-content-center d-flex mt-5">
+           
+                <table class="table table-bordered">
+                  <thead>
+                    <tr class="table-primary">
+                      <td colspan="2">Settings</td>
+                    </tr>
+                    <tr class="table-success">
+                      <td>Least Impression</td>
+                      <td>Minimum Bid</td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td class="table-light"><input type="text" class="input" name="leastImpress" value="10"></td>
+                      <td class="table-light"><input type="text" class="input" name="maxBid" value="0.03"></td>
+                    </tr>
+                  </tbody>
+                </table>
+          </div>
+        </div>
+        <div class="row mt-3 text-right">
+          <div class="col-lg-6  d-flex flex-row-reverse mt-2">
+            <table class="table table-bordered">
+              <thead>
+                <tr class="table-primary">
+                  <td colspan="3">Exclusion</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="table-success">60 Days Clicks Less Then</td>
+                  <td class="table-light" colspan='2'><input type="text" class="input" name="clicksLess" value="5"></td>
+                </tr>
+                <tr>
+                  <td class="table-success">Yesterday ACOS</td>
+                  <td class="table-light"><input type="text" class="input" name="yesterdayAcos1" value="0.01"></td>
+                  <td class="table-light"><input type="text" class="input" name="yesterdayAcos2" value="0.02"></td>
+                </tr>
+                <tr>
+                  <td class="table-success">60 Days ACOS</td>
+                  <td class="table-light"><input type="text" class="input" name="60daysAcos1" value="0.01"></td>
+                  <td class="table-light"><input type="text" class="input" name="60daysAcos2" value="3.39"></td>
+                </tr>
+                <tr>
+                  <td class="table-success">Yesterday 0 Clicks</td>
+                  <td class="table-light" colspan='2'>
+                    <select class="input" id="cars" name="yesterday0clicks">
+                      <option value="yes">Yes</option>
+                      <option value="no">No</option>
+                    </select></td>
+                </tr>
+              </tbody>
+            </table>
+        </div>
+        <div class="col-lg-3  mt-2">
+          <div class="wrapper-2" for="60days">
+            <header>Upload 60 Days File (.xlsx)</header>
+            <div class="file">
+              <input class="file-input" type="file" id="60days" name="60-days-file">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <label for="60days">Browse File to Upload</label>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-3  mt-2">
+          <div class="wrapper-2">
+            <header>Uplpoad Yesterday File (.xlsx)</header>
+            <div class="file">
+              <input class="file-input" type="file" id="yesterday" name="yesterday-file">
+              <i class="fas fa-cloud-upload-alt"></i>
+              <label for="yesterday" >Browse File to Upload</label>
+          </div>
+          </div>
+        </div>
+      </div>
+        <a href="#" class="btn btn-primary rounded-pill px-3 py-2 mt-5">Run Script</a>
+        <button type="submit" class="btn btn-success rounded-pill px-3 py-2 mt-5">Batch Script</button>
+    </form>
+    </div>
+    <!-- <script src="./assets/js/script.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

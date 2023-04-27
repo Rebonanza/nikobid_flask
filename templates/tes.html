@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!-- Coding By CodingNepal - youtube.com/codingnepal -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Upload JavaScript with Progress Ba | CodingNepal</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+  <div class="wrapper">
+    <header>File Uploader JavaScript</header>
+    <form action="#">
+      <input class="file-input" type="file" name="file" hidden>
+      <i class="fas fa-cloud-upload-alt"></i>
+      <p>Browse File to Upload</p>
+    </form>
+    <section class="progress-area"></section>
+    <section class="uploaded-area"></section>
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
+
+<div class="col-lg-3  mt-2">
+  <div class="wrapper-2">
+    <header>Upload 60 Days File (.xlsx)</header>
+    <div class="file">
+      <input class="file-input" type="file" id="60days" name="60-days">
+      <i class="fas fa-cloud-upload-alt"></i>
+      <label for="60days">Browse File to Upload</label>
+    </div>
+  </div>
+</div>
+<div class="col-lg-3  mt-2">
+  <div class="wrapper-2">
+    <header>Uplpoad Yesterday File (.xlsx)</header>
+    <form action="#" class="file" enctype="multipart/form-data">
+      <input class="file-input" type="file" id="yesterday" name="yesterday">
+      <i class="fas fa-cloud-upload-alt"></i>
+      <label for="yesterday" >Browse File to Upload</label>
+    </form>
+  </div>
+</div>
